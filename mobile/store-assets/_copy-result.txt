@@ -1,0 +1,13 @@
+source: C:\Users\matsuda\.cursor\projects\empty-window\assets
+copied: 6
+
+--- screenshots ---
+_report-sizes.js	898
+_shell-test.txt	4
+store-01-hero-voice.png	1729562
+store-02-random-call.png	1712443
+store-03-safety.png	1645662
+store-04-anonymous-voice.png	1584330
+store-05-kumorin-waiting.png	1594283
+--- play-feature ---
+play-feature-graphic.png	1751293

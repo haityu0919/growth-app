@@ -1,0 +1,87 @@
+# 音声通話テスト — 開発版アプリ
+
+Expo Go ではマッチングまで確認済み ✅  
+**音声** は開発版アプリ（EAS Build）が必要です。
+
+---
+
+## 事前準備（1回だけ）
+
+### 1. EAS CLI をインストール
+
+PowerShell で:
+
+```powershell
+npm install -g eas-cli
+eas login
+```
+
+Expo アカウントがなければ https://expo.dev で無料作成。
+
+### 2. Apple Developer Program に加入（iPhone 用・App Store 公開にも必須）
+
+1. https://developer.apple.com/programs/ を開く
+2. 「Enroll」→ Apple ID でサインイン
+3. 個人（Individual）を選択（副業・個人開発ならこちら）
+4. 年 $99 の支払い
+5. **承認まで最大 48 時間**（多くは数時間〜1日）
+
+承認メールが届くまで iOS ビルドは待ち。
+
+### 3. 開発版アプリをビルド
+
+`mobile` フォルダで **`start-dev-build.bat`** をダブルクリック
+
+- **iPhone 2台でテスト** → **2) iOS**
+- **Android 端末がある場合** → **1) Android**（加入不要・早い）
+
+ビルド完了後、表示 URL から **2台のスマホにインストール**。
+
+初回 iOS ビルド時、EAS が Apple 証明書の設定を案内します（画面の指示に従う）。
+---
+
+## 音声テストの手順（毎回）
+
+### PC
+
+1. `token-server\サーバー起動.bat`  
+   → `LiveKit configured: true` を確認
+2. `mobile\start-expo-devclient.bat`  
+   → ブラウザに QR が出る
+
+### スマホ（2台）
+
+1. **Expo Go ではなく**、インストールした **「だれトーク」開発版アプリ** を開く
+2. アプリ内で QR をスキャン（または URL 手入力）
+3. 両方で **だれトークする** → **同意して通話開始**
+4. 「**通話中です**」と表示され、声が届けば成功 🎉
+
+---
+
+## 注意
+
+| 項目 | 内容 |
+|------|------|
+| Wi-Fi | マッチング用サーバーは PC 上。2台とも **PC と同じ Wi-Fi** |
+| Expo Go | 音声不可。開発版アプリを使う |
+| マイク | 初回、マイク許可を「許可」にする |
+| ビルド後の起動 | `start-expo-devclient.bat`（`--dev-client` モード） |
+
+---
+
+## うまくいかないとき
+
+- **「音声接続エラー」** → token-server の `.env`（LiveKit キー）を確認
+- **マッチングしない** → 2台とも同じ Wi-Fi + サーバー起動を確認
+- **QR が読めない** → 開発版アプリ内で読む（iPhone カメラ不可）
+- **Expo Go が開く** → 開発版アプリを使っているか確認
+
+---
+
+## ファイル一覧
+
+| ファイル | 用途 |
+|----------|------|
+| `start-dev-build.bat` | EAS で開発版 APK/IPA を作成 |
+| `start-expo-devclient.bat` | 開発版アプリ用 Expo 起動 |
+| `start-expo-qr.bat` | Expo Go 用（音声不可） |

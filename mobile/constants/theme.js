@@ -1,0 +1,33 @@
+/**
+ * 採用配色: 01 ラベンダードーン（チーム多数決）
+ */
+export const THEME = {
+  bg: '#f0edff',
+  card: '#ffffff',
+  primary: '#6c5ce7',
+  primaryDark: '#5b4fd1',
+  primaryText: '#ffffff',
+  primaryHint: '#e8e4ff',
+  text: '#1f1a33',
+  textMuted: '#5e5678',
+  textSecondary: '#6b6580',
+  body: '#3d3650',
+  border: '#ddd6f5',
+  link: '#5b4fd1',
+  surfaceMuted: '#e8e4f8',
+  surfaceSecondary: '#ebe6ff',
+  plannedButton: '#e8e4f8',
+  plannedBorder: '#d0c8eb',
+  disabled: '#c5c0d8',
+  disabledButton: '#b8b0d0',
+  danger: '#d64545',
+  dangerSurface: '#fff5f5',
+  notice: '#b86b00',
+  warningSurface: '#fff8eb',
+  warningBorder: '#e8c878',
+  success: '#2d8a5c',
+  premiumCardBg: '#ebe6ff',
+  premiumCardBorder: '#6c5ce7',
+  inputPlaceholder: '#8a849c',
+  filterLocked: '#e4dff5',
+};

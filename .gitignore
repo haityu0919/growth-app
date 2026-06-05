@@ -1,0 +1,67 @@
+# =============================================================================
+# growth-app ルート .gitignore
+# 秘密情報・生成物・OS ゴミを除外。token-server ソース・Railway 設定・docs は含める。
+# =============================================================================
+
+# --- Dependencies ---
+node_modules/
+
+# --- Environment / secrets（絶対にコミットしない）---
+.env
+.env.local
+.env.*.local
+
+# --- token-server ランタイムデータ（通報・ブロック等）---
+# data/ フォルダ自体は残す（.gitkeep のみコミット）
+token-server/data/*.json
+!token-server/data/.gitkeep
+
+# --- Mobile / Expo ---
+mobile/.expo/
+mobile/.expo-go-test/
+mobile/.expo-livekit-test/
+mobile/.expo-web-test/
+mobile/dist/
+mobile/web-build/
+mobile/expo-env.d.ts
+
+# 未採用のロゴ案・一時画像
+mobile/assets/logo-refined-*.png
+mobile/assets/daretalk-mascot.png
+mobile/assets/*-blend.png
+
+# --- Native（生成フォルダ）---
+mobile/ios/
+mobile/android/
+mobile/.kotlin/
+
+# --- Build / debug ---
+*.tsbuildinfo
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+.metro-health-check*
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Editor / Cursor 一時 ---
+.cursor/projects/
+*.swp
+*.swo
+*~
+
+# --- Keys / certs（絶対にコミットしない）---
+*.pem
+*.p8
+*.p12
+*.key
+*.jks
+*.mobileprovision
+*.orig.*
+
+# --- セットアップ時の一時ファイル ---
+_git_check.txt
+_cmd_output.txt

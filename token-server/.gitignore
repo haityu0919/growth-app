@@ -1,0 +1,7 @@
+node_modules/
+.env
+.env.local
+.env.*.local
+
+# ランタイムで生成される JSON（通報・ブロック等）。デプロイには不要。
+data/*.json

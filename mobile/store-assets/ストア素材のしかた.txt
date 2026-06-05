@@ -1,0 +1,28 @@
+だれトーク — ストア素材ガイド（確定版）
+================================
+
+■ 掲載用イメージ（文字入り・5枚）【決定済み】
+
+  copy-store-screenshots.bat を実行
+  → store-assets\screenshots\ にコピー
+
+  store-01-hero-voice.png      … メイン訴求
+  store-02-random-call.png     … ランダム通話
+  store-03-safety.png          … 通報・ブロック
+  store-04-anonymous-voice.png … 匿名・声だけ（1メッセージに整理）
+  store-05-kumorin-waiting.png   … くもりん待機
+
+  詳細: ストア掲載画像一覧.md
+
+■ アプリ本体の画像
+
+  apply-brand-assets.bat … icon / splash / launch-logo
+
+■ Google Play 必須
+
+  play-feature-graphic.png（1024×500）
+
+■ 審査のコツ
+
+  掲載画像の文言と、実アプリの機能が大きく違わないようにする。
+  実機スクショを1〜2枚混ぜてもよい。

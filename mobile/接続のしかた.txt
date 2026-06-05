@@ -1,0 +1,100 @@
+だれトーク — Expo Go のつなぎ方
+================================
+
+※ Expo Go と開発版の違い → docs\FAQ.md
+
+■ 起動ファイル（mobile フォルダ内）
+
+  通常起動:     start-expo-qr.bat  （または QRで起動.bat）
+  復旧起動:     start-expo-recovery.bat  （または QRで起動_復旧.bat）
+  トンネル:     start-expo-tunnel.bat  （または QRで起動_トンネル.bat）
+
+  フォルダを開く:
+  C:\Users\matsuda\Documents\growth-app\mobile
+
+
+■ 「使用可能なデータが見つかりません」と出るとき
+
+  【原因1】iPhone の「カメラ」アプリで読んでいる
+  → カメラではなく **Expo Go アプリ内** で QR を読んでください
+  → Expo Go を開く → 「Scan QR code」
+
+  【原因2】LiveKit 追加後に Expo Go で起動できない
+  → 2026/05/20 修正済み。Expo Go では画面・マッチングまで利用可
+  → 音声だけ開発版アプリが必要
+
+  【原因3】QR がまだ出ていない
+  → PC に「Metro waiting on http://localhost:8081」と出てから読む
+
+  【原因4】開発版用 QR（exp+://）になっている
+  → LiveKit 用に expo-dev-client を入れているため
+  → 「start-expo-recovery.bat」は Expo Go 向け（--go）で起動するよう修正済み
+  → 黒い画面で s キーを押すと Go / Dev 切替もできます
+
+
+■ 黒い画面に QR が出ないとき（よくある原因）
+
+  1. 「トンネル」が失敗している（会社の Wi-Fi など）
+     → 「QRで起動.bat」は LAN 方式に直してあります
+
+  2. QR はターミナルではなくブラウザに出る
+     → Expo の準備ができたらブラウザが自動で開きます
+     → 開かないとき: Chrome で http://localhost:8081 を開く
+
+  3. PC とスマホが別の Wi-Fi
+     → 同じ Wi-Fi にそろえる（テザリングでも可）
+
+
+■ 手順（おすすめ）
+
+  1. mobile フォルダの「start-expo-qr.bat」をダブルクリック
+  2. 黒い画面に「Starting...」と出たら少し待つ（準備できたらブラウザが開く）
+  3. ブラウザに QR コードが表示されたら、Expo Go で読み取る
+
+     iPhone: Expo Go を開く → 「Scan QR code」
+     Android: Expo Go → Scan QR code
+
+
+■ QR がどうしても出ないとき — 手入力
+
+  1. 黒い画面に表示される「exp://192.168.x.x:8081」をメモ
+     （192.168 で始まる数字は人によって違います）
+
+  2. Expo Go を開く
+  3. 「Enter URL manually」または「URL を入力」
+  4. 上の exp://... を貼り付けて接続
+
+
+■ 「Opening project」から動かないとき（よくある）
+
+  原因は、だいたい「スマホがPCのExpoに届いていない」です。
+
+  【手順A】復旧起動（まずこれ）
+  1. PCの黒い画面（Expo）を Ctrl+C で止める
+  2. スマホの Expo Go を完全終了
+  3. 「start-expo-recovery.bat」をダブルクリック
+  4. PCに「Metro waiting on http://localhost:8081」と出るまで待つ
+  5. そのあと QR を読み取る
+
+  【手順B】iPhone の場合
+  - 設定 > Expo Go > 「ローカルネットワーク」を ON
+  - App Store で Expo Go を最新に更新（SDK 54 対応が必要）
+
+  【手順C】同じ Wi-Fi か確認
+  - PCとスマホが同じ Wi-Fi（別ルーター・ゲストWi-Fiは不可のことが多い）
+
+  【手順D】手入力で接続
+  1. 復旧.bat の黒い画面に出る exp://192.168.x.x:8081 をコピー
+  2. Expo Go > Enter URL manually に貼る
+
+  【手順E】LANがダメなとき
+  - 「start-expo-tunnel.bat」を使う（初回1〜2分かかることがあります）
+
+  【手順F】Windows ファイアウォール
+  - Node.js の「プライベートネットワーク」を許可
+  - 会社Wi-Fiは Expo がブロックされることがあります
+
+
+■ まだダメなとき
+
+  黒い画面の最後の 10 行をコピーして Cursor に貼ってください。
